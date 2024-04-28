@@ -22,21 +22,28 @@ function display(container, msg) {
 
 document.getElementById('submitGuess').addEventListener('click', async () => {
   try {
+
+    // npm i @noir-lang/backend_barretenberg@0.27.0 @noir-lang/noir_js@0.27.0
+
     // here's where love happens
     const backend = new BarretenbergBackend(circuit);
     const noir = new Noir(circuit, backend);
-    const x = parseInt(document.getElementById('guessInput').value);
-    const input = { x, y: 2 };
+
+    // Game Player Input
+    const guess = parseInt(document.getElementById('guessInput').value);
+
+    // Game Creator Secret Input
+    const answer = 4;
+    const input = { answer: answer, guess: guess };
     
-    //const witness = noir.execute(input);
-    //console.log(x, y);
     await setup(); // let's squeeze our wasm inits here
 
     display('logs', 'Generating proof... ⌛');
     const proof = await noir.generateProof(input);
     display('logs', 'Verifying proof... ✅');
     display('results', proof.proof);
-
+    //display('results', proof.publicInputs);
+    
     display('logs', 'Verifying proof... ⌛');
     const verification = await noir.verifyProof(proof);
     if (verification) display('logs', 'Verifying proof... ✅');

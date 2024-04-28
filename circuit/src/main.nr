@@ -1,5 +1,5 @@
-fn main(x: Field, y: pub Field) {
-    assert(x == y);
+fn main(answer: Field, guess: Field) {
+    assert(answer == guess);
 }
 
 #[test]
