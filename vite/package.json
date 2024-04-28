@@ -1,0 +1,19 @@
+{
+  "name": "vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@noir-lang/backend_barretenberg": "^0.27.0",
+    "@noir-lang/noir_js": "^0.27.0",
+    "vite-plugin-top-level-await": "^1.4.1"
+  },
+  "devDependencies": {
+    "vite": "^5.2.10"
+  }
+}
