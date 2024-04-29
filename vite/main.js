@@ -24,8 +24,6 @@ document.getElementById('submitGuess').addEventListener('click', async () => {
   try {
 
     // npm i @noir-lang/backend_barretenberg@0.27.0 @noir-lang/noir_js@0.27.0
-
-    // here's where love happens
     const backend = new BarretenbergBackend(circuit);
     const noir = new Noir(circuit, backend);
 
